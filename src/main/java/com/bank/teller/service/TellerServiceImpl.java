@@ -10,7 +10,7 @@ import com.bank.teller.repository.AccountRepository;
 public class TellerServiceImpl implements TellerService {
 
     @Autowired
-    AccountRepository accountRepository;
+    private AccountRepository accountRepository;
 
     public double checkBalance(long accountNumber) {
         return accountRepository.getBalance(accountNumber);

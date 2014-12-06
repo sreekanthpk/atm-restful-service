@@ -1,4 +1,5 @@
 package com.bank.teller.rest.controller;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,14 +23,12 @@ import com.bank.teller.service.TellerService;
 public class TellerServiceController {
 
     @Autowired
-    TellerService tellerService;
+    private TellerService tellerService;
 
     @Autowired
-    AuthenticationService authenticationService;
+    private AuthenticationService authenticationService;
 
-    Map<Long, String> authDetails = new HashMap<Long, String>();
-
-    @RequestMapping(value = "/gettoken", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/gettoken", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody String authorize(@RequestBody @Valid Account account) {
         return authenticationService.generateToken(account);
     }

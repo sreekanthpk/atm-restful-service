@@ -35,15 +35,15 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public boolean verifyToken(long accountNumber, String token) {
-        if(ignoreAuth){
+        if (ignoreAuth) {
             return true;
         }
         String existingToken = authDetails.get(new Long(accountNumber));
-       
-        if (existingToken!=null && existingToken.equals(token)) {
+
+        if (existingToken != null && existingToken.equals(token)) {
             authDetails.remove(new Long(accountNumber));
             return true;
-        } else{
+        } else {
             return false;
         }
     }
